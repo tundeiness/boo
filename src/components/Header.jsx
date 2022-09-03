@@ -12,7 +12,7 @@ import { FaTiktok } from 'react-icons/fa';
 const Header = () => {
   const [nav, setNav] = useState(false);
   return (
-    <div className="max-w-[1640px] mx-auto flex justify-between items-center px-10 py-4 border border-red-500">
+    <div className="max-w-[1640px] mx-auto flex justify-between items-center px-10 py-6 border border-red-500">
       {/* <div className="flex items-center border border-green-500"> */}
       <ul className="flex flex-row justify-around border border-red-500">
         <li className="px-3">Home</li>

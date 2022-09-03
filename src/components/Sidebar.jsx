@@ -4,7 +4,7 @@ import React from 'react';
 const Sidebar = () => {
   const test = 0;
   return (
-    <div>Sidebar</div>
+    <aside className="w-96 border border-blue-400">Sidebar</aside>
   );
 };
 
