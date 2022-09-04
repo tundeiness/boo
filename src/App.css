@@ -15,9 +15,19 @@ input[type="text"]::-webkit-input-placeholder {
   /* box-shadow: 0px 0px 3px 1px #333 */
   /* box-shadow: -6px -7px -1px -1px rgba(217,162,191,0.75); */
   /* box-shadow: -6px -7px -1px -1px rgba(217,162,191,0.75); */
-  box-shadow: 0px 2px 3px 0px rgba(217,162,191);
+  box-shadow: 0px 2px 3px 0px rgba(217,162,191), 0px 0px 3px 1px #333;
+
+  /* box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green; */
 }
 
 .best{
   box-shadow: 3px 6px 24px 0px rgba(109, 236, 206, 1);
+}
+
+.zodiac{
+  background-image: url('./Assets/static/space.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position:center;
+  /* background-position:center; */
 }

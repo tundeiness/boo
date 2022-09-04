@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
@@ -8,8 +9,14 @@ import {
 } from './components/ButtonCollections';
 import SubCards from './components/SubCards';
 import Comments from './components/Comment';
+import { profiles } from './components/data/data';
 
 function App() {
+  const [user, setUser] = useState(profiles);
+
+  const filterPersonality = (category) => {
+    setUser(profiles.filter((item) => item.category === category));
+  };
   return (
     <div className="App">
       <Header />
@@ -70,12 +77,36 @@ function App() {
               <p className="text-lg font-bold leading-7">Comments</p>
               <CommentBtn text="Vote/Comment" />
             </div>
-            <div className="outline outline-red-500">
+            <div className="outline outline-red-500 max-w-[390px]">
               <ul className="flex flex-row text-sm">
-                <li className="pr-3">All</li>
-                <li className="pr-3">MBTI</li>
-                <li className="pr-3">Enneagram</li>
-                <li className="pr-3">Zodiac</li>
+                <li
+                  onClick={() => setUser(profiles)}
+                  className="pr-3"
+                  role="presentation"
+                >
+                  All
+                </li>
+                <li
+                  onClick={() => filterPersonality('MBTI')}
+                  className="pr-3"
+                  role="presentation"
+                >
+                  MBTI
+                </li>
+                <li
+                  onClick={() => filterPersonality('Enneagram')}
+                  className="pr-3"
+                  role="presentation"
+                >
+                  Enneagram
+                </li>
+                <li
+                  onClick={() => filterPersonality('Zodiac')}
+                  className="pr-3"
+                  role="presentation"
+                >
+                  Zodiac
+                </li>
               </ul>
             </div>
             <div className="flex flex-row mt-4">

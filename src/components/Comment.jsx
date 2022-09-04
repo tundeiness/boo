@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { MBTIBtn, ZodiacBtn, EnneagramBtn } from './ButtonCollections';
+import James from '../Assets/static/elon.webp';
 
 const Comment = () => {
   const test = 0;
@@ -10,7 +11,11 @@ const Comment = () => {
       <div className="flex flex-col px-2 border border-red-500">
         <div className="flex flex-row px-2 py-3 border border-red-500">
           <div className="flex flex-col justify-center items-center w-20 h-20 rounded-full mr-1 border border-blue-500">
-            <img src="./" alt="james Bond" />
+            <img
+              src={James}
+              alt="james Bond"
+              className="w-20 h-20 rounded-full object-cover"
+            />
           </div>
           <p className="inline-block mt-3 ">James</p>
         </div>
