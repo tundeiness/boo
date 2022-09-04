@@ -17,6 +17,17 @@ export const SectorBtn = ({ sector }) => {
   );
 };
 
+export const CommentBtn = ({ text }) => {
+  const test = 0;
+  return (
+    <>
+      <span className="bg-viking rounded-full text-sm font-semibold text-white px-6 py-2 uppercase">
+        {text}
+      </span>
+    </>
+  );
+};
+
 const AuthButton = ({
   buttonText, loading, condition,
 }) => {

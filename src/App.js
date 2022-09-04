@@ -3,14 +3,14 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import { SectorBtn } from './components/ButtonCollections';
+import { SectorBtn, CommentBtn } from './components/ButtonCollections';
 import SubCards from './components/SubCards';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div className="max-w-[1640px] flex md:flex-row flex-col md:px-10 px-4 border border-red-500">
+      <div className="max-w-[1640px] flex md:flex-row flex-col md:px-10 border border-red-500">
         <Sidebar />
         <main className="flex flex-col w-screen border border-gray-500">
           <div className="flex flex-col w-64 border border-red-500">
@@ -24,13 +24,22 @@ function App() {
               <SectorBtn sector="Technology" />
             </div>
           </div>
-          <div className="flex flex-row justify-between border border-gray mt-1">
+          <div className="lg:flex lg:flex-row sm:flex-col justify-between border border-gray mt-1">
             {/* <div className="w-64 flex flex-col justify-center items-center border border-red-500"> */}
-            <div className="lg:w-60 lg:h-60 rounded-full flex justify-center items-center ml-6 mt-6 border border-red-500">
+            <div className="hidden lg:w-60 lg:h-60 rounded-full lg:flex justify-center items-center ml-6 mt-6 border border-red-500">
               inner stuff
             </div>
             {/* </div> */}
-            <div className="grid md:grid-cols-4 gap-5  mr-10 border border-red-500">
+            <div className="grid md:grid-cols-4 md:gap-5 grid-cols-3 gap-3 md:mr-10 border border-red-500">
+              <div className="lg:hidden w-25 h-25 flex flex-col justify-center items-center  border border-gray">
+                {/* <div className="w-full h-full rounded-full border border-red-500"> */}
+                <img
+                  src="./"
+                  alt="elon"
+                  className="img inline-block w-20 h-20 rounded-full shadow-lg"
+                />
+                {/* </div> */}
+              </div>
               <SubCards title="MBTI" text="INTP" />
               <SubCards title="MBTI" text="INTP" />
               <SubCards title="MBTI" text="INTP" />
@@ -41,7 +50,7 @@ function App() {
               <SubCards title="MBTI" text="INTP" />
             </div>
           </div>
-          <div className="pt-10 pl-2 pr-10 pb-10 border border-red-500 text-sm">
+          <div className="lg:pt-10 lg:pl-2 lg:pr-10 lg:pb-10 p-2 border border-red-500 text-sm">
             Aliquip veniam tempor irure sit. Ut esse excepteur Lorem deserunt
             cupidatat hello commodo est occaecat culpa ut incididunt ut ea
             deserunt. Cillum dolor dolor adipisicing nulla deserunt in
@@ -52,6 +61,25 @@ function App() {
             aliqua proident laborum nostrud et consequat pariatur. Laboris
             incididunt id commodo ut Lorem aute irure adipisicing. Culpa amet et
             incididunt id commodo ut Lorem aute.
+          </div>
+          <div className="flex flex-col outline outline-blue-600">
+            <div className="flex flex-row justify-between my-3">
+              <p className="text-lg font-bold leading-7">Comments</p>
+              <CommentBtn text="Vote/Comment" />
+              {/* <span className="uppercase">Vote/Comment</span> */}
+            </div>
+            <div>
+              <ul className="flex flex-row">
+                <li>All</li>
+                <li>MBTI</li>
+                <li>Enneagram</li>
+                <li>Zodiac</li>
+              </ul>
+            </div>
+            <div>
+              <span>best</span>
+              <span>recent</span>
+            </div>
           </div>
         </main>
       </div>
