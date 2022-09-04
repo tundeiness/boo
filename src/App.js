@@ -3,7 +3,9 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import { SectorBtn, CommentBtn } from './components/ButtonCollections';
+import {
+  SectorBtn, CommentBtn, BestBtn, RecentBtn,
+} from './components/ButtonCollections';
 import SubCards from './components/SubCards';
 
 function App() {
@@ -66,19 +68,18 @@ function App() {
             <div className="flex flex-row justify-between my-3">
               <p className="text-lg font-bold leading-7">Comments</p>
               <CommentBtn text="Vote/Comment" />
-              {/* <span className="uppercase">Vote/Comment</span> */}
             </div>
-            <div>
-              <ul className="flex flex-row">
-                <li>All</li>
-                <li>MBTI</li>
-                <li>Enneagram</li>
-                <li>Zodiac</li>
+            <div className="outline outline-red-500">
+              <ul className="flex flex-row text-sm">
+                <li className="pr-3">All</li>
+                <li className="pr-3">MBTI</li>
+                <li className="pr-3">Enneagram</li>
+                <li className="pr-3">Zodiac</li>
               </ul>
             </div>
-            <div>
-              <span>best</span>
-              <span>recent</span>
+            <div className="flex flex-row mt-4">
+              <BestBtn text="best" />
+              <RecentBtn text="recent" />
             </div>
           </div>
         </main>

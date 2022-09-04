@@ -21,7 +21,29 @@ export const CommentBtn = ({ text }) => {
   const test = 0;
   return (
     <>
-      <span className="bg-viking rounded-full text-sm font-semibold text-white px-6 py-2 uppercase">
+      <span className="bg-viking rounded-full text-sm font-semibold text-white px-4 py-2 uppercase">
+        {text}
+      </span>
+    </>
+  );
+};
+
+export const BestBtn = ({ text }) => {
+  const test = 0;
+  return (
+    <>
+      <span className="bg-viking rounded-full text-sm font-semibold text-white px-3 py-1.5 mr-2" type="button">
+        {text}
+      </span>
+    </>
+  );
+};
+
+export const RecentBtn = ({ text }) => {
+  const test = 0;
+  return (
+    <>
+      <span className="bg-white rounded-full text-sm font-semibold text-black px-3 py-1.5 outline outline-gray-200" type="button">
         {text}
       </span>
     </>
