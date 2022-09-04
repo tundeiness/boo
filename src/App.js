@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
@@ -24,11 +25,11 @@ function App() {
             </div>
           </div>
           <div className="flex flex-row justify-between border border-gray mt-1">
-            <div className="w-64 flex flex-col justify-center items-center border border-red-500">
-              <div className="w-60 h-60 rounded-full flex justify-center items-center border border-red-500">
-                inner stuff
-              </div>
+            {/* <div className="w-64 flex flex-col justify-center items-center border border-red-500"> */}
+            <div className="lg:w-60 lg:h-60 rounded-full flex justify-center items-center ml-6 mt-6 border border-red-500">
+              inner stuff
             </div>
+            {/* </div> */}
             <div className="grid md:grid-cols-4 gap-5  mr-10 border border-red-500">
               <SubCards title="MBTI" text="INTP" />
               <SubCards title="MBTI" text="INTP" />
