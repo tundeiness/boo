@@ -8,6 +8,8 @@ const Sidebar = () => {
   const test = 0;
   const [status, setStatus] = useState(null);
 
+  // const sectorList = ['anime', 'music', 'politics', 'historians', 'art', 'gaming']
+
   const changeStatus = (e) => {
     setStatus(e.target.value);
   };
@@ -18,15 +20,17 @@ const Sidebar = () => {
 
       <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-16 mx-0 border border-red-500">
         <IoGridOutline size={14} />
-        <input
+        {/* <input
           className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black"
           type="text"
           placeholder="Categories"
-        />
-        <BiChevronDown size={25} />
-        <select value={status} onChange={changeStatus}>
-          <option value="single">Single</option>
-          <option value="married">Married</option>
+        /> */}
+        <select
+          value={status}
+          onChange={changeStatus}
+          placeholder="Categories"
+          className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black"
+        >
           <option value="anime">anime</option>
           <option value="music">music</option>
           <option value="politics">politics</option>
@@ -44,6 +48,7 @@ const Sidebar = () => {
           <option value="pop culture">pop culture</option>
           <option value="internet">internet</option>
         </select>
+        {/* <BiChevronDown size={25} /> */}
       </div>
     </aside>
   );
