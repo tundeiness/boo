@@ -67,13 +67,13 @@ const Header = () => {
       <div
         className={
           nav
-            ? 'fixed top-0 right-0 w-[300px] h-screen bg-white z-10 duration-300'
+            ? 'fixed top-0 right-0 w-full h-screen bg-white z-10 duration-300'
             : 'fixed top-0 right-[-100%] w-[300px] h-screen bg-white z-10 duration-300'
         }
       >
         <div
           // size={30}
-          className="flex flex-col justify-around px-1 py-1 border border-gray-400 w-7 h-7 cursor-pointer absolute top-4 right-4"
+          className="flex flex-col justify-around px-1 py-1 border border-gray-400 w-7 h-7 cursor-pointer absolute top-4 left-96"
           onClick={() => setNav(!nav)}
           role="presentation"
         >

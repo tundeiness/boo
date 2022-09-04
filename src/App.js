@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="max-w-[1640px] flex flex-row px-10 border border-red-500">
+      <div className="max-w-[1640px] flex md:flex-row flex-col md:px-10 px-4 border border-red-500">
         <Sidebar />
         <main className="flex flex-col w-screen border border-gray-500">
           <div className="flex flex-col w-64 border border-red-500">
