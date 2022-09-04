@@ -32,7 +32,7 @@ export const BestBtn = ({ text }) => {
   const test = 0;
   return (
     <>
-      <span className="bg-viking rounded-full text-sm font-semibold text-white px-3 py-1.5 mr-2" type="button">
+      <span className="best bg-viking rounded-full text-sm font-semibold text-white px-3 py-1.5 mr-2 outline outline-viking" type="button">
         {text}
       </span>
     </>
@@ -44,6 +44,39 @@ export const RecentBtn = ({ text }) => {
   return (
     <>
       <span className="bg-white rounded-full text-sm font-semibold text-black px-3 py-1.5 outline outline-gray-200" type="button">
+        {text}
+      </span>
+    </>
+  );
+};
+
+export const ZodiacBtn = ({ text }) => {
+  const test = 0;
+  return (
+    <>
+      <span className="bg-viking rounded-full text-sm text-black px-4 py-2 mr-1 capitalize">
+        {text}
+      </span>
+    </>
+  );
+};
+
+export const MBTIBtn = ({ text }) => {
+  const test = 0;
+  return (
+    <>
+      <span className="bg-viking rounded-full text-sm text-black px-4 py-2 mr-1 uppercase">
+        {text}
+      </span>
+    </>
+  );
+};
+
+export const EnneagramBtn = ({ text }) => {
+  const test = 0;
+  return (
+    <>
+      <span className="bg-viking rounded-full text-xs text-black px-2 py-0.5 mr-1 shadow-lg">
         {text}
       </span>
     </>

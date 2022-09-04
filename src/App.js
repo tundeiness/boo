@@ -7,6 +7,7 @@ import {
   SectorBtn, CommentBtn, BestBtn, RecentBtn,
 } from './components/ButtonCollections';
 import SubCards from './components/SubCards';
+import Comments from './components/Comment';
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
                 <img
                   src="./"
                   alt="elon"
-                  className="img inline-block w-20 h-20 rounded-full shadow-lg"
+                  className="img inline-block w-20 h-20 rounded-full shadow-lg object-cover"
                 />
                 {/* </div> */}
               </div>
@@ -64,7 +65,7 @@ function App() {
             incididunt id commodo ut Lorem aute irure adipisicing. Culpa amet et
             incididunt id commodo ut Lorem aute.
           </div>
-          <div className="flex flex-col outline outline-blue-600">
+          <div className="flex flex-col outline outline-blue-600 px-2">
             <div className="flex flex-row justify-between my-3">
               <p className="text-lg font-bold leading-7">Comments</p>
               <CommentBtn text="Vote/Comment" />
@@ -82,6 +83,7 @@ function App() {
               <RecentBtn text="recent" />
             </div>
           </div>
+          <Comments />
         </main>
       </div>
     </div>
