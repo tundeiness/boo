@@ -1,21 +1,18 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-undef */
-export const data = [
-  {
-    id: 1,
-    name: 'Double Cheeseburger',
-    category: 'burger',
-    comments: [
-      {
-        body: lorem5,
-      },
-    ],
-  },
-];
 
-export const comments = [
+export const profiles = [
   {
     id: 1,
-    comments: 'Some comments about the project',
+    name: 'A Martinez',
+    description: 'Adolph Larrue Martinez III.',
+    mbti: 'ISFJ',
+    enneagram: '9w3',
+    variant: 'sp/so',
+    tritype: 725,
+    socionics: 'SEE',
+    sloan: 'RCOEN',
+    psyche: 'FEVL',
+    image: 'https://soulverse.boo.world/images/1.png',
   },
 ];
