@@ -3,15 +3,21 @@ import React, { useState } from 'react';
 // import { HiOutlineSquares2X2 } from 'react-icons/hi';
 import { IoGridOutline } from 'react-icons/io5';
 import { BiChevronDown } from 'react-icons/bi';
+import { profiles } from './data/data';
 
 const Sidebar = () => {
   const test = 0;
   const [status, setStatus] = useState(null);
+  const [dats, setData] = useState(profiles);
 
   // const sectorList = ['anime', 'music', 'politics', 'historians', 'art', 'gaming']
 
   const changeStatus = (e) => {
     setStatus(e.target.value);
+  };
+
+  const handleDatabaseSearch = () => {
+
   };
   return (
     <aside className="w-96 border border-blue-400">
@@ -31,6 +37,9 @@ const Sidebar = () => {
           placeholder="Categories"
           className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black"
         >
+          <option value="" label="Select Status">
+            Select Sector
+          </option>
           <option value="anime">anime</option>
           <option value="music">music</option>
           <option value="politics">politics</option>
