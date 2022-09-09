@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-// import { HiOutlineSquares2X2 } from 'react-icons/hi';
 import { IoGridOutline } from 'react-icons/io5';
-import { BiChevronDown } from 'react-icons/bi';
 import { profiles } from './data/data';
 
 const Sidebar = () => {
@@ -17,7 +15,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="lg:w-96 w-full px-4 border border-blue-400">
+    <aside className="lg:w-96 w-full px-4 my-2">
       <p className="text-lg font-semibold leading-9">Soulverse</p>
       <p className="text-xs mb-6">MBTI personality database</p>
 

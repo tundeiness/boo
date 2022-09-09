@@ -15,9 +15,6 @@ const Comment = () => {
   const navigate = useNavigate();
   const params = useParams();
   const comments = useSelector((store) => store.comments);
-  // const likes = useSelector((state) => state.like.like);
-  // const dispatch = useDispatch();
-  // const existingComments = comments.filter((comment) => comment.id === params.id);
   const [comment, setComment] = useState([]);
 
   const [users, setUsers] = useState(null);
@@ -48,16 +45,10 @@ const Comment = () => {
     return () => { (mounted = false); };
   }, []);
 
-  useEffect(() => {
-    // handleVotes(id);
-  }, []);
-
-  console.log('comment data =>', comment?.data);
-
   const renderComments = () => comment?.data?.map((items) => (
-    <div key={items.id} className="flex flex-col px-2 border border-red-500">
-      <div className="flex flex-row px-2 py-3 border border-red-500">
-        <div className="flex flex-col justify-center items-center w-20 h-20 rounded-full mr-1 border border-blue-500">
+    <div key={items.id} className="comment-section flex flex-col px-2 py-2 mb-4 mx-3 rounded-xl border border-gray-200">
+      <div className="flex flex-row px-2 py-3">
+        <div className="flex flex-col justify-center items-center w-20 h-20 rounded-full mr-1">
           <img
             src={items.image ? items.image : James}
             alt={items.name ? items.name : 'No Name'}
@@ -75,17 +66,17 @@ const Comment = () => {
           <EnneagramBtn text={items.enneagram ? items.enneagram : 'none'} />
           <ZodiacBtn text={items.zodiac ? items.zodiac : 'none'} />
         </div>
-        <textarea className="my-3" rows="9">
+        <textarea className="my-3 shadow-none drop-shadow-none p-3" rows="9">
           {items.body}
         </textarea>
-        <span className="flex flex-row border border-red-500">
+        <span className="flex flex-row">
           <span
             className="inline-block mr-1"
             type="button"
             onClick={() => { handleVotes(items.id); }}
             role="presentation"
           >
-            <BsFillHeartFill className="my-auto" />
+            <BsFillHeartFill className="my-auto cursor-pointer" />
           </span>
           <span className="inline-block text-xs text-black">
             {items.like_count}
@@ -96,7 +87,7 @@ const Comment = () => {
   ));
 
   return (
-    <div className=" flex flex-col mx-1 px-1 py-1 my-1 border border-gray-400 rounded-2xl shadow-lg drop-shadow-lg">
+    <div className=" flex flex-col mx-1 px-1 py-1 my-1 rounded-2xl shadow-lg drop-shadow-lg">
       {/* {comment.length ? (
         renderComments()
       ) : (

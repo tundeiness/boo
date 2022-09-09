@@ -23,17 +23,17 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="max-w-[1640px] flex md:flex-row flex-col md:px-10 border border-red-500">
+      <div className="max-w-[1640px] flex md:flex-row flex-col md:px-10">
         <Sidebar />
-        <main className="flex flex-col w-screen border border-gray-500">
+        <main className="flex flex-col w-screen">
           <UserFilter />
           {/* comment section */}
-          <div className="flex flex-col outline outline-blue-600 px-4">
+          <div className="flex flex-col px-4">
             <div className="flex flex-row justify-between my-3">
               <p className="text-lg font-bold leading-7">Comments</p>
               <CommentBtn text="Vote/Comment" />
             </div>
-            <div className="outline outline-red-500 max-w-[390px]">
+            <div className="max-w-[390px]">
               <ul className="flex flex-row text-sm">
                 <li
                   onClick={() => setUser(profiles)}
