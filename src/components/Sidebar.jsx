@@ -8,8 +8,6 @@ const Sidebar = () => {
   const [status, setStatus] = useState(null);
   const [dats, setData] = useState(profiles);
 
-  // const sectorList = ['anime', 'music', 'politics', 'historians', 'art', 'gaming']
-
   const changeStatus = (e) => {
     setStatus(e.target.value);
   };
