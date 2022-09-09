@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import {
@@ -11,6 +12,7 @@ import SubCards from './components/SubCards';
 import Comments from './components/Comment';
 import { profiles } from './components/data/data';
 import UserFilter from './components/UserFilter';
+import AddComment from './components/AddComment';
 
 function App() {
   const [user, setUser] = useState(profiles);
@@ -68,7 +70,10 @@ function App() {
               <RecentBtn text="recent" />
             </div>
           </div>
-          <Comments />
+          <Routes>
+            <Route path="/" element={<Comments />} />
+            <Route path="/add-comment" element={<AddComment />} />
+          </Routes>
         </main>
       </div>
     </div>
