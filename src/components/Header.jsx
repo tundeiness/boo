@@ -12,15 +12,15 @@ import { FaTiktok } from 'react-icons/fa';
 const Header = () => {
   const [nav, setNav] = useState(false);
   return (
-    <div className="max-w-[1640px] mx-auto flex justify-between items-center px-10 py-6 border border-red-500">
+    <div className="max-w-[1640px] mx-auto  flex justify-between items-center lg:px-10 px-4 py-6">
       {/* <div className="flex items-center border border-green-500"> */}
-      <ul className="hidden md:flex flex-row justify-around border border-red-500">
+      <ul className="hidden md:flex flex-row justify-around">
         <li className="px-3">Home</li>
         <li className="px-3">Blog</li>
         <li className="px-3">Quizzes</li>
         <li className="px-3">Personalities</li>
       </ul>
-      <h1 className="text-2xl sm:text-4xl lg:text-4xl font-Inter font-normal leading-9 px-2 border border-red-500">
+      <h1 className="text-2xl sm:text-4xl lg:text-4xl font-Inter font-normal leading-9 px-2">
         Boo
       </h1>
       <div
@@ -32,7 +32,7 @@ const Header = () => {
         <span className="span-one bg-black" />
         <span className="span-one bg-black" />
       </div>
-      <div className="hidden md:flex flex-row justify-around border border-red-500">
+      <div className="hidden md:flex flex-row justify-around">
         <span className="inline-block px-2 py-1">
           <GrFacebookOption size={20} />
         </span>
@@ -87,11 +87,15 @@ const Header = () => {
             style={{ height: '1px' }}
           />
         </div>
-        <ul className="flex flex-col mt-12 border border-red-500">
-          <li className="px-3">Home</li>
-          <li className="px-3">Blog</li>
-          <li className="px-3">Quizzes</li>
-          <li className="px-3">Personalities</li>
+        <ul className="flex flex-col mt-12 py-10 h-screen">
+          <li className="px-3 text-center py-5">Home</li>
+          <li className="px-3 text-center py-5">Blog</li>
+          <li className="px-3 text-center py-5">
+            Quizzes
+          </li>
+          <li className="px-3 text-center py-5">
+            Personalities
+          </li>
         </ul>
       </div>
     </div>

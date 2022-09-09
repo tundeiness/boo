@@ -15,9 +15,9 @@ const Comment = () => {
   const navigate = useNavigate();
   const params = useParams();
   const comments = useSelector((store) => store.comments);
-  const likes = useSelector((state) => state.like.like);
-  const dispatch = useDispatch();
-  const existingComments = comments.filter((comment) => comment.id === params.id);
+  // const likes = useSelector((state) => state.like.like);
+  // const dispatch = useDispatch();
+  // const existingComments = comments.filter((comment) => comment.id === params.id);
   const [comment, setComment] = useState([]);
 
   const [users, setUsers] = useState(null);
@@ -97,13 +97,14 @@ const Comment = () => {
 
   return (
     <div className=" flex flex-col mx-1 px-1 py-1 my-1 border border-gray-400 rounded-2xl shadow-lg drop-shadow-lg">
-      {comments.length ? (
+      {/* {comment.length ? (
         renderComments()
       ) : (
         <p className="text-center text-gray-700 font-semibold col-span-2">
           No Comments yet!!
         </p>
-      )}
+      )} */}
+      { renderComments()}
     </div>
   );
 };

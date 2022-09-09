@@ -28,7 +28,7 @@ function App() {
         <main className="flex flex-col w-screen border border-gray-500">
           <UserFilter />
           {/* comment section */}
-          <div className="flex flex-col outline outline-blue-600 px-2">
+          <div className="flex flex-col outline outline-blue-600 px-4">
             <div className="flex flex-row justify-between my-3">
               <p className="text-lg font-bold leading-7">Comments</p>
               <CommentBtn text="Vote/Comment" />

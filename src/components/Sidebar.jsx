@@ -16,29 +16,21 @@ const Sidebar = () => {
     setStatus(e.target.value);
   };
 
-  const handleDatabaseSearch = () => {
-
-  };
   return (
-    <aside className="w-96 border border-blue-400">
+    <aside className="lg:w-96 w-full px-4 border border-blue-400">
       <p className="text-lg font-semibold leading-9">Soulverse</p>
       <p className="text-xs mb-6">MBTI personality database</p>
 
-      <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-16 mx-0 border border-red-500">
+      <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-16 mx-0">
         <IoGridOutline size={14} />
-        {/* <input
-          className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black"
-          type="text"
-          placeholder="Categories"
-        /> */}
         <select
           value={status}
           onChange={changeStatus}
           placeholder="Categories"
           className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black"
         >
-          <option value="" label="Select Status">
-            Select Sector
+          <option value="" label="Categories">
+            Categories
           </option>
           <option value="anime">anime</option>
           <option value="music">music</option>
@@ -57,7 +49,6 @@ const Sidebar = () => {
           <option value="pop culture">pop culture</option>
           <option value="internet">internet</option>
         </select>
-        {/* <BiChevronDown size={25} /> */}
       </div>
     </aside>
   );
