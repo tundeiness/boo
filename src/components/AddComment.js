@@ -22,25 +22,6 @@ const AddComment = () => {
     comments: '',
   });
 
-  // const [posts, setPosts] = useState({
-  //   title: '',
-  //   comments: '',
-  // });
-
-  // // POST with Axios
-  // const addPosts = async (title, body) => {
-  //   let response = await client.post("", {
-  //     title: title,
-  //     body: body,
-  //   });
-  //   setPosts([response.data, ...posts]);
-  //   setTitle("");
-  //   setBody("");
-  // };
-
-  // const ADD_COMMENTS_URL = 'http://localhost:3001/api/v1/posts/';
-  // const ADD_USER_URL = 'http://localhost:3001/api/v1/users/';
-
   const handleAddComment = async () => {
     setValues({
       name: '',
@@ -79,16 +60,8 @@ const AddComment = () => {
     navigate('/');
   };
 
-  // useEffect(() => {
-  //   let loaded = true;
-  //   handleAddComment();
-  //   return () => {
-  //     loaded = false;
-  //   };
-  // }, []);
-
   return (
-    <form className="outline outline-red-500 my-2">
+    <form className="my-2 lg:mx-auto mx-4">
       <div>
         <TextField
           label="Name"
