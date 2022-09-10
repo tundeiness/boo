@@ -22,11 +22,11 @@ const UserFilter = () => {
       </div>
       <div className="lg:flex lg:flex-row sm:flex-col justify-between mt-3">
         {/* <div className="w-64 flex flex-col justify-center items-center border border-red-500"> */}
-        <div className="hidden lg:w-60 lg:h-60 rounded-full lg:flex justify-center items-center ml-6 mt-6 border border-gray-200">
+        <div className="hidden lg:w-60 lg:h-60 rounded-full lg:flex justify-center items-center ml-6 mt-6 lg:ml-0 lg:mt-0 w-30 h-30 border border-gray-200">
           <img
             src={Elon}
             alt="elon"
-            className="img inline-block w-60 h-60 rounded-full shadow-lg object-cover"
+            className="img inline-block lg:w-60 lg:h-60  rounded-full shadow-lg object-cover"
           />
         </div>
         {/* </div> */}
