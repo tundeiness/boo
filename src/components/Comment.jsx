@@ -46,13 +46,16 @@ const Comment = () => {
   }, []);
 
   const renderComments = () => comment?.data?.map((items) => (
-    <div key={items.id} className="comment-section flex flex-col px-2 py-2 mb-4 mx-3 rounded-xl border border-gray-200">
+    <div
+      key={items.id}
+      className="comment-container flex flex-col px-2 py-2 mb-4 mx-3 rounded-3xl border border-gray-200 shadow-lg drop-shadow-lg"
+    >
       <div className="flex flex-row px-2 py-3">
-        <div className="flex flex-col justify-center items-center w-20 h-20 rounded-full mr-1">
+        <div className="flex flex-col justify-center items-center w-20 h-20 rounded-full mr-1 border-none outline-none">
           <img
             src={items.image ? items.image : James}
-            alt={items.name ? items.name : 'No Name'}
-            className="w-20 h-20 rounded-full object-cover bg-no-repeat bg-cover bg-center"
+            alt={items.name ? '' : 'No Name'}
+            className="img-comments w-20 h-20 rounded-full object-cover bg-no-repeat bg-cover bg-center border border-gray"
           />
         </div>
         <p className="inline-block mt-3">
@@ -66,14 +69,16 @@ const Comment = () => {
           <EnneagramBtn text={items.enneagram ? items.enneagram : 'none'} />
           <ZodiacBtn text={items.zodiac ? items.zodiac : 'none'} />
         </div>
-        <textarea className="my-3 shadow-none drop-shadow-none p-3" rows="9">
+        <textarea className="my-3 p-3 backdrop-grayscale-0 lg:h-full h-screen" rows="6">
           {items.body}
         </textarea>
         <span className="flex flex-row">
           <span
             className="inline-block mr-1"
             type="button"
-            onClick={() => { handleVotes(items.id); }}
+            onClick={() => {
+              handleVotes(items.id);
+            }}
             role="presentation"
           >
             <BsFillHeartFill className="my-auto cursor-pointer" />
@@ -87,7 +92,7 @@ const Comment = () => {
   ));
 
   return (
-    <div className=" flex flex-col mx-1 px-1 py-1 my-1 rounded-2xl shadow-lg drop-shadow-lg">
+    <div className="flex flex-col mx-1 px-1 py-1 my-5 rounded-2xl">
       {/* {comment.length ? (
         renderComments()
       ) : (

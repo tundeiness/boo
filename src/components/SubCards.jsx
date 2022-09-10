@@ -7,8 +7,8 @@ const SubCards = ({ title, text }) => {
   return (
     <>
       <div className="w-23 h-23 lg:w-40 lg:h-40 rounded-xl shadow-lg drop-shadow-lg py-4 flex flex-col justify-between items-center align-middle border border-gray">
-        <p>{title}</p>
-        <p className="text-2xl text-viking font-semibold">{text}</p>
+        <p className="lg:w-[60%] w-full mb-5 text-center">{title}</p>
+        <p className="lg:text-2xl text-md text-viking font-semibold text-center">{text}</p>
       </div>
     </>
   );

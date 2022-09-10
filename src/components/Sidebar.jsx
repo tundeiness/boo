@@ -17,7 +17,7 @@ const Sidebar = () => {
       <p className="text-lg font-semibold leading-9">Soulverse</p>
       <p className="text-xs mb-6">MBTI personality database</p>
 
-      <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-16 mx-0">
+      <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-0 mx-0">
         <IoGridOutline size={14} />
         <select
           value={status}

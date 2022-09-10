@@ -31,7 +31,7 @@ const UserFilter = () => {
         </div>
         {/* </div> */}
         <div className="grid md:grid-cols-4 md:gap-5 grid-cols-3 gap-3 md:mr-10  px-4">
-          <div className="lg:hidden w-25 h-25 flex flex-col justify-center items-center  border border-gray">
+          <div className="lg:hidden w-25 h-25 flex flex-col justify-center items-center">
             {/* <div className="w-full h-full rounded-full border border-red-500"> */}
             <img
               src={Elon}
@@ -41,13 +41,13 @@ const UserFilter = () => {
             {/* </div> */}
           </div>
           <SubCards title="MBTI" text="INTP" />
-          <SubCards title="MBTI" text="INTP" />
-          <SubCards title="MBTI" text="INTP" />
-          <SubCards title="MBTI" text="INTP" />
-          <SubCards title="MBTI" text="INTP" />
-          <SubCards title="MBTI" text="INTP" />
-          <SubCards title="MBTI" text="INTP" />
-          <SubCards title="MBTI" text="INTP" />
+          <SubCards title="Enneagram" text="5w6" />
+          <SubCards title="Instinctual Variant" text="so/sp" />
+          <SubCards title="Tritype" text="513" />
+          <SubCards title="Socionics" text="ILE" />
+          <SubCards title="Big 5 Sloan" text="RCOEI" />
+          <SubCards title="Atitudinal Psyche" text="VLFE" />
+          <SubCards title="Temperament" text="Phlegmatic [Dominant]" />
         </div>
       </div>
       <div className="lg:pt-10 lg:pl-2 lg:pr-10 lg:pb-10 p-4 text-sm">
