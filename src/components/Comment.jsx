@@ -7,6 +7,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { MBTIBtn, ZodiacBtn, EnneagramBtn } from './ButtonCollections';
 import James from '../Assets/static/elon.webp';
+import AddComment from './AddComment';
 // import { increment } from '../redux/features/likeSlice';
 
 const COMMENTS_URL = 'http://localhost:3001/api/v1/posts';
@@ -92,16 +93,19 @@ const Comment = () => {
   ));
 
   return (
-    <div className="flex flex-col mx-1 px-1 py-1 my-5 rounded-2xl">
-      {/* {comment.length ? (
+    <>
+      {/* <AddComment /> */}
+      <div className="flex flex-col mx-1 px-1 py-1 my-5 rounded-2xl">
+        {/* {comment.length ? (
         renderComments()
       ) : (
         <p className="text-center text-gray-700 font-semibold col-span-2">
           No Comments yet!!
         </p>
       )} */}
-      { renderComments()}
-    </div>
+        {renderComments()}
+      </div>
+    </>
   );
 };
 

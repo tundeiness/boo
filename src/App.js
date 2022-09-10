@@ -71,8 +71,8 @@ function App() {
             </div>
           </div>
           <Routes>
-            <Route path="/" element={<Comments />} />
             <Route path="/add-comment" element={<AddComment />} />
+            <Route path="/" element={<Comments />} />
           </Routes>
         </main>
       </div>

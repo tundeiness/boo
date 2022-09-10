@@ -61,7 +61,7 @@ const AddComment = () => {
   };
 
   return (
-    <form className="my-2 lg:mx-30 mx-4">
+    <form className="my-2 lg:mx-30 mx-4 rounded-3xl border border-gray-200 shadow-lg drop-shadow-lg">
       <div>
         <TextField
           label="Name"

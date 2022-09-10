@@ -15,10 +15,10 @@ const Header = () => {
     <div className="max-w-[1640px] mx-auto  flex justify-between items-center lg:px-10 px-4 py-6">
       {/* <div className="flex items-center border border-green-500"> */}
       <ul className="hidden md:flex flex-row justify-around">
-        <li className="px-3">Home</li>
-        <li className="px-3">Blog</li>
-        <li className="px-3">Quizzes</li>
-        <li className="px-3">Personalities</li>
+        <li className="px-3 underline underline-offset-8 cursor-pointer">Home</li>
+        <li className="px-3 cursor-pointer">Blog</li>
+        <li className="px-3 cursor-pointer">Quizzes</li>
+        <li className="px-3 cursor-pointer">Personalities</li>
       </ul>
       <h1 className="text-2xl sm:text-4xl lg:text-4xl font-Inter font-normal leading-9 px-2">
         Boo
@@ -73,7 +73,7 @@ const Header = () => {
       >
         <div
           // size={30}
-          className="flex flex-col justify-around px-1 py-1 border border-gray-400 w-7 h-7 cursor-pointer absolute top-4 left-96"
+          className="flex flex-col justify-around px-1 py-1 border border-gray-400 w-7 h-7 cursor-pointer absolute top-[2em] left-[23em]"
           onClick={() => setNav(!nav)}
           role="presentation"
         >
@@ -90,12 +90,8 @@ const Header = () => {
         <ul className="flex flex-col mt-12 py-10 h-screen">
           <li className="px-3 text-center py-5">Home</li>
           <li className="px-3 text-center py-5">Blog</li>
-          <li className="px-3 text-center py-5">
-            Quizzes
-          </li>
-          <li className="px-3 text-center py-5">
-            Personalities
-          </li>
+          <li className="px-3 text-center py-5">Quizzes</li>
+          <li className="px-3 text-center py-5">Personalities</li>
         </ul>
       </div>
     </div>
