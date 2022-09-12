@@ -102,7 +102,7 @@ export const EnneagramBtn = ({ text }) => {
   const test = 0;
   return (
     <>
-      <span className="bg-viking rounded-full text-sm text-black px-2 py-2 mr-1 shadow-lg">
+      <span className="bg-viking rounded-2xl text-sm text-black px-4 py-2 mr-1 shadow-lg">
         {text}
       </span>
     </>

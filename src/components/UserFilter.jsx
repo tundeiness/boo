@@ -20,18 +20,18 @@ const UserFilter = () => {
           <SectorBtn sector="Technology" />
         </div>
       </div>
-      <div className="lg:flex lg:flex-row sm:flex-col justify-between mt-3">
+      <div className="lg:flex lg:flex-row flex-col justify-between mt-3 border border-red-200">
         {/* <div className="w-64 flex flex-col justify-center items-center border border-red-500"> */}
-        <div className="hidden lg:w-60 lg:h-60 rounded-full lg:flex justify-center items-center ml-6 mt-6 lg:ml-0 lg:mt-0 w-30 h-30 border border-gray-200">
+        <div className="hidden xl:w-60 xl:h-60 lg:h-32 rounded-full lg:flex justify-center items-center ml-6 mt-6 lg:ml-0 lg:mt-0 w-30 h-30 border border-gray-600">
           <img
             src={Elon}
             alt="elon"
-            className="img inline-block lg:w-60 lg:h-60  rounded-full shadow-lg object-cover"
+            className="img inline-block xl:w-60 xl:h-60 lg:h-32   rounded-full shadow-lg object-cover"
           />
         </div>
         {/* </div> */}
-        <div className="grid md:grid-cols-4 md:gap-5 grid-cols-3 gap-3 md:mr-10  px-4">
-          <div className="lg:hidden w-25 h-25 flex flex-col justify-center items-center">
+        <div className="grid md:grid-cols-4 xl:gap-5  grid-cols-3 gap-3 md:mr-10  px-4 lg:gap-10 lg:mr-6">
+          <div className="xl:hidden lg:hidden w-25 h-25 flex flex-col justify-center items-center">
             {/* <div className="w-full h-full rounded-full border border-red-500"> */}
             <img
               src={Elon}
@@ -50,7 +50,7 @@ const UserFilter = () => {
           <SubCards title="Temperament" text="Phlegmatic [Dominant]" />
         </div>
       </div>
-      <div className="lg:pt-10 lg:pl-2 lg:pr-10 lg:pb-10 p-4 text-sm">
+      <div className="xl:pt-10 xl:pl-2 xl:pr-10 xl:pb-10 lg:pt-10 lg:pl-4 lg:pr-6 lg:pb-10 p-4 text-sm">
         Aliquip veniam tempor irure sit. Ut esse excepteur Lorem deserunt
         cupidatat hello commodo est occaecat culpa ut incididunt ut ea deserunt.
         Cillum dolor dolor adipisicing nulla deserunt in exercitation dolor
