@@ -20,7 +20,7 @@ const UserFilter = () => {
           <SectorBtn sector="Technology" />
         </div>
       </div>
-      <div className="lg:flex lg:flex-row flex-col justify-between mt-3 border border-red-200">
+      <div className="lg:flex lg:flex-row flex-col justify-between mt-8">
         {/* <div className="w-64 flex flex-col justify-center items-center border border-red-500"> */}
         <div className="hidden xl:w-60 xl:h-60 lg:h-32 rounded-full lg:flex justify-center items-center ml-6 mt-6 lg:ml-0 lg:mt-0 w-30 h-30 border border-gray-600">
           <img
