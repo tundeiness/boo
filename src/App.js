@@ -33,17 +33,6 @@ const App = () => {
     setToggle(!toggle);
   };
 
-  // const handleBest = async () => {
-  //   try {
-  //     const res = await axios.post(
-  //       'http://localhost:3001/api/v1/posts',
-  //     );
-  //     console.log(res.data);
-  //   } catch (error) {
-  //     console.log(error.response.data);
-  //   }
-  // };
-
   const getBestComments = () => axios.get(BEST_COMMENTS_URL).then((response) => response.data);
 
   useEffect(() => {

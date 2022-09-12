@@ -113,9 +113,11 @@ export const Mbti = () => {
   const changeStatus = (e) => {
     setStatus(e.target.value);
   };
+
+  // console.log(status);
+
   return (
     <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-0 mx-0">
-      {/* <IoGridOutline size={14} /> */}
       <select
         value={status}
         onChange={changeStatus}
