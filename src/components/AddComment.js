@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -60,6 +61,39 @@ const AddComment = () => {
     navigate('/');
   };
 
+  useEffect(() => {
+    let mounted = true;
+    //  getAllComments().then((items) => {
+    //    if (mounted) {
+    //      setComment(items);
+    //    }
+    //  });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const mutation = useMutation(() => axios({
+    method: 'post',
+    url: 'http://localhost:3001/api/v1/posts/',
+    data: {
+      title: values.title,
+      body: values.comments,
+      name: values.name,
+      zodiac: values.zodiac,
+      mbti: values.mbti,
+      enneagram: values.enneagram,
+      image: values.avatarUrl,
+    },
+  }),
+
+  {
+    onSuccess: () => {
+      navigate('/');
+    },
+  });
+
   return (
     <form className="my-2 lg:mx-30 mx-4 rounded-3xl border border-gray-200 shadow-lg drop-shadow-lg">
       <div>
@@ -112,7 +146,7 @@ const AddComment = () => {
           inputProps={{ type: 'text', placeholder: 'lorem ipsum' }}
         />
       </div>
-      <SubmitButton onClick={handleAddComment} />
+      <SubmitButton onClick={() => mutation.mutate()} />
     </form>
   );
 };

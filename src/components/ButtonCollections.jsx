@@ -43,11 +43,16 @@ export const CommentBtn = ({ text }) => {
   );
 };
 
-export const BestBtn = ({ text }) => {
+export const BestBtn = ({ text, onClick }) => {
   const test = 0;
   return (
     <>
-      <span className="best bg-viking rounded-full text-sm font-semibold text-white px-3 py-1.5 mr-2 outline outline-viking" type="button">
+      <span
+        className="best bg-viking rounded-full text-sm font-semibold text-white px-3 py-1.5 mr-2 outline outline-viking"
+        type="button"
+        onClick={onClick}
+        role="presentation"
+      >
         {text}
       </span>
     </>

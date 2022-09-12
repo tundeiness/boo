@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useMutation, useQuery } from 'react-query';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -22,31 +23,82 @@ const Comment = () => {
   const [id, setId] = useState(null);
   const [singleUser, setSingleUser] = useState(null);
   const [votes, setVotes] = useState(null);
+  const query = useQuery('allPosts', () => axios.get(COMMENTS_URL),
+    {
+      refetchOnWindowFocus: true,
+    });
+  console.log(query?.data?.data?.data);
 
   const getAllComments = () => axios.get(COMMENTS_URL).then((response) => response.data);
 
-  const handleVotes = async (id) => {
-    try {
-      const res = await axios.post(`http://localhost:3001/api/v1/posts/${id}/likes`);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error.response.data);
-    }
-    navigate('/');
-  };
+  // const handleVotes = async (id) => {
+  //   try {
+  //     const res = await axios.post(`http://localhost:3001/api/v1/posts/${id}/likes`);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.log(error.response.data);
+  //   }
+  //   navigate('/');
+  // };
 
-  useEffect(() => {
-    let mounted = true;
-    getAllComments().then((items) => {
-      if (mounted) {
-        setComment(items);
-      }
-    });
+  // useEffect(() => {
+  //   let mounted = true;
+  //   getAllComments().then((items) => {
+  //     if (mounted) {
+  //       setComment(items);
+  //     }
+  //   });
 
-    return () => { (mounted = false); };
-  }, []);
+  //   return () => { (mounted = false); };
+  // }, []);
 
-  const renderComments = () => comment?.data?.map((items) => (
+  // useEffect(() => {
+  //   let mounted = true;
+
+  //   try {
+  //     const res = axios.post(`http://localhost:3001/api/v1/posts/${votes}/likes`);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.log(error.response.data);
+  //   }
+  //   navigate('/');
+
+  //   return () => {
+  //     mounted = false;
+  //   };
+  // }, [navigate, votes]);
+
+  const mutation = useMutation(
+    (id) => axios({
+      method: 'post',
+      url: `http://localhost:3001/api/v1/posts/${id}/likes`,
+      //  data: {
+      //    title: values.title,
+      //    body: values.comments,
+      //    name: values.name,
+      //    zodiac: values.zodiac,
+      //    mbti: values.mbti,
+      //    enneagram: values.enneagram,
+      //    image: values.avatarUrl,
+      //  },
+    }),
+
+    {
+      onSuccess: () => {
+        navigate('/');
+      },
+    },
+  );
+
+  if (query.isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (query.isError) {
+    return <h1>Unable to fetch data...</h1>;
+  }
+
+  const renderComments = () => query?.data?.data?.data?.map((items) => (
     <div
       key={items.id}
       className="comment-container flex flex-col px-2 py-2 mb-4 mx-3 rounded-3xl border border-gray-200 shadow-lg drop-shadow-lg"
@@ -70,7 +122,10 @@ const Comment = () => {
           <EnneagramBtn text={items.enneagram ? items.enneagram : 'none'} />
           <ZodiacBtn text={items.zodiac ? items.zodiac : 'none'} />
         </div>
-        <textarea className="my-3 p-3 backdrop-grayscale-0 lg:h-full h-screen" rows="6">
+        <textarea
+          className="my-3 p-3 backdrop-grayscale-0 lg:h-full h-screen"
+          rows="6"
+        >
           {items.body}
         </textarea>
         <span className="flex flex-row">
@@ -78,7 +133,8 @@ const Comment = () => {
             className="inline-block mr-1"
             type="button"
             onClick={() => {
-              handleVotes(items.id);
+              setVotes(items.id);
+              mutation.mutate(items.id);
             }}
             role="presentation"
           >
@@ -95,6 +151,13 @@ const Comment = () => {
   return (
     <>
       {/* <AddComment /> */}
+      <div
+        className="comment-container flex flex-col px-2 py-2 my-5 mx-3 rounded-3xl border border-gray-200 shadow-lg drop-shadow-lg"
+      >
+        {' '}
+        new data
+
+      </div>
       <div className="flex flex-col mx-1 px-1 py-1 my-5 rounded-2xl">
         {/* {comment.length ? (
         renderComments()
