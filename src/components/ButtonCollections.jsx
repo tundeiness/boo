@@ -32,14 +32,18 @@ export const SectorBtn = ({ sector }) => {
   );
 };
 
-export const CommentBtn = ({ text }) => {
+export const CommentBtn = ({ text, onClick }) => {
   const test = 0;
   return (
-    <Link to="/add-comment">
-      <span className="bg-viking rounded-full text-sm font-semibold text-white px-4 py-2 uppercase">
-        {text}
-      </span>
-    </Link>
+  // <Link to="/add-comment">
+    <span
+      className="bg-viking rounded-full text-sm font-semibold text-white px-4 py-2 uppercase cursor-pointer"
+      onClick={onClick}
+      role="presentation"
+    >
+      {text}
+    </span>
+  // </Link>
   );
 };
 

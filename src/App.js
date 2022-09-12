@@ -71,7 +71,7 @@ const App = () => {
             <div className="flex flex-col px-4">
               <div className="flex flex-row justify-between my-3">
                 <p className="text-lg font-bold leading-7">Comments</p>
-                <CommentBtn text="Vote/Comment" onClick={() => navigate('/add-comment')} />
+                <CommentBtn text="Vote/Comment" onClick={() => handleToggle()} />
               </div>
               <div className="max-w-[390px]">
                 <ul className="flex flex-row text-sm">
@@ -110,10 +110,12 @@ const App = () => {
                 <RecentBtn text="recent" />
               </div>
             </div>
-            <Routes>
+            {/* <Routes>
               <Route path="/add-comment" element={<AddComment />} />
               <Route path="/" element={<Comments />} />
-            </Routes>
+            </Routes> */}
+            {toggle ? <AddComment /> : ''}
+            <Comments />
           </main>
         </div>
       </div>
