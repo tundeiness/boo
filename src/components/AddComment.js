@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useMutation } from 'react-query';
@@ -9,7 +10,7 @@ import { TextField, TextComment } from './TextField';
 import { SubmitButton, Mbti } from './ButtonCollections';
 import { addComment } from '../redux/features/commentSlice';
 
-const AddComment = () => {
+const AddComment = ({ handleToggle }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [values, setValues] = useState({
@@ -25,6 +26,7 @@ const AddComment = () => {
 
   const [status, setStatus] = useState(null);
   const [gram, setGram] = useState(null);
+  const [zodiac, setZodiac] = useState(null);
 
   const changeStatus = (e) => {
     setStatus(e.target.value);
@@ -34,56 +36,9 @@ const AddComment = () => {
     setGram(e.target.value);
   };
 
-  // const handleAddComment = async () => {
-  //   setValues({
-  //     name: '',
-  //     zodiac: '',
-  //     mbti: '',
-  //     enneagram: '',
-  //     image: '',
-  //     title: '',
-  //     comments: '',
-  //   });
-
-  //   const addComment = {
-  //     title: values.title,
-  //     body: values.comments,
-  //     name: values.name,
-  //     zodiac: values.zodiac,
-  //     mbti: values.mbti,
-  //     enneagram: values.enneagram,
-  //     image: values.avatarUrl,
-  //   };
-
-  //   const config = {
-  //     headers: {
-  //       'Content-Type': 'application/x-www-form-urlencoded',
-  //       accept: '*/*',
-  //     },
-  //   };
-
-  //   try {
-  //     const res = await axios.post('http://localhost:3001/api/v1/posts/', addComment);
-  //     console.log(res.data);
-  //   } catch (error) {
-  //     console.log(error.response.data);
-  //   }
-
-  //   navigate('/');
-  // };
-
-  useEffect(() => {
-    let mounted = true;
-    //  getAllComments().then((items) => {
-    //    if (mounted) {
-    //      setComment(items);
-    //    }
-    //  });
-
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  const changeZodiac = (e) => {
+    setZodiac(e.target.value);
+  };
 
   const mutation = useMutation(() => axios({
     method: 'post',
@@ -92,9 +47,9 @@ const AddComment = () => {
       title: values.title,
       body: values.comments,
       name: values.name,
-      zodiac: values.zodiac,
-      mbti: values.mbti,
-      enneagram: values.enneagram,
+      zodiac,
+      mbti: status,
+      enneagram: gram,
       image: values.avatarUrl,
     },
   }),
@@ -106,7 +61,7 @@ const AddComment = () => {
   });
 
   return (
-    <form className="my-2 lg:mx-30 mx-4 rounded-3xl border border-gray-200 shadow-lg drop-shadow-lg">
+    <form className="flex flex-col lg:px-4 py-2 mb-4 mx-3 lg:mt-5 rounded-3xl border border-gray-200 shadow-xl drop-shadow-xl">
       <div>
         <TextField
           label="Name"
@@ -114,34 +69,14 @@ const AddComment = () => {
           onChange={(e) => setValues({ ...values, name: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'johnny' }}
         />
-        <br />
-        <TextField
-          label="Image"
-          values={values.image}
-          onChange={(e) => setValues({ ...values, image: e.target.value })}
-          inputProps={{ type: 'text', placeholder: 'www.https://some links' }}
-        />
-        <br />
-        <TextField
-          label="Zodiac"
-          values={values.zodiac}
-          onChange={(e) => setValues({ ...values, zodiac: e.target.value })}
-          inputProps={{ type: 'text', placeholder: 'Sagitaurus' }}
-        />
-        <br />
-        {/* <TextField
-          label="MBTI"
-          values={values.mbti}
-          onChange={(e) => setValues({ ...values, mbti: e.target.value })}
-          inputProps={{ type: 'text', placeholder: 'INTA' }}
-        /> */}
-        <div className="flex flex-row">
-          <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-0 mx-0">
+
+        <div className="flex flex-row  w-full my-4">
+          <div className="mbti-container rounded-full flex items-center px-2 w-[90px] lg:mx-4 border border-gray">
             <select
               value={status}
               onChange={changeStatus}
               placeholder="Categories"
-              className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black"
+              className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black text-sm"
             >
               <option value="" label="MBTI">
                 MBTI
@@ -165,7 +100,7 @@ const AddComment = () => {
             </select>
           </div>
 
-          <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-0 mx-0">
+          <div className="gram-container rounded-full flex items-center px-2 w-[135px] lg:mr-4 border border-gray">
             <select
               value={gram}
               onChange={changeEnneagram}
@@ -194,12 +129,12 @@ const AddComment = () => {
             </select>
           </div>
 
-          <div className="categories-container rounded-full flex items-center px-2 w-[150px] md:mx-0 mx-0">
+          <div className="zodiac rounded-full flex items-center px-2 py-0.5 w-[105px] md:mx-0 mx-0">
             <select
-              value={gram}
-              onChange={changeEnneagram}
-              placeholder="Enneagram"
-              className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-black"
+              value={zodiac}
+              onChange={changeZodiac}
+              placeholder="Zodiac"
+              className="bg-transparent py-0.5 px-2 w-full focus:outline-none text-white"
             >
               <option value="" label="Zodiac">
                 Zodiac
@@ -220,14 +155,6 @@ const AddComment = () => {
           </div>
         </div>
 
-        <br />
-        <TextField
-          label="Enneagram"
-          values={values.enneagram}
-          onChange={(e) => setValues({ ...values, enneagram: e.target.value })}
-          inputProps={{ type: 'text', placeholder: '5 wing 6' }}
-        />
-
         <TextField
           label="Title"
           values={values.title}
@@ -242,7 +169,7 @@ const AddComment = () => {
           inputProps={{ type: 'text', placeholder: 'lorem ipsum' }}
         />
       </div>
-      <SubmitButton onClick={() => mutation.mutate()} />
+      <SubmitButton onClick={() => { mutation.mutate(); handleToggle(); }} />
     </form>
   );
 };

@@ -15,13 +15,13 @@ const COMMENTS_URL = 'http://localhost:3001/api/v1/posts';
 
 const Comment = () => {
   const navigate = useNavigate();
-  const params = useParams();
-  const comments = useSelector((store) => store.comments);
-  const [comment, setComment] = useState([]);
+  // const params = useParams();
+  // const comments = useSelector((store) => store.comments);
+  // const [comment, setComment] = useState([]);
 
-  const [users, setUsers] = useState(null);
-  const [id, setId] = useState(null);
-  const [singleUser, setSingleUser] = useState(null);
+  // const [users, setUsers] = useState(null);
+  // const [id, setId] = useState(null);
+  // const [singleUser, setSingleUser] = useState(null);
   const [votes, setVotes] = useState(null);
   const query = useQuery('allPosts', () => axios.get(COMMENTS_URL),
     {
@@ -31,26 +31,18 @@ const Comment = () => {
 
   const getAllComments = () => axios.get(COMMENTS_URL).then((response) => response.data);
 
-  // const handleVotes = async (id) => {
-  //   try {
-  //     const res = await axios.post(`http://localhost:3001/api/v1/posts/${id}/likes`);
-  //     console.log(res.data);
-  //   } catch (error) {
-  //     console.log(error.response.data);
-  //   }
-  //   navigate('/');
-  // };
+  const mutation = useMutation(
+    (id) => axios({
+      method: 'post',
+      url: `http://localhost:3001/api/v1/posts/${id}/likes`,
+    }),
 
-  // useEffect(() => {
-  //   let mounted = true;
-  //   getAllComments().then((items) => {
-  //     if (mounted) {
-  //       setComment(items);
-  //     }
-  //   });
-
-  //   return () => { (mounted = false); };
-  // }, []);
+    {
+      onSuccess: () => {
+        navigate('/');
+      },
+    },
+  );
 
   // useEffect(() => {
   //   let mounted = true;
@@ -68,35 +60,13 @@ const Comment = () => {
   //   };
   // }, [navigate, votes]);
 
-  const mutation = useMutation(
-    (id) => axios({
-      method: 'post',
-      url: `http://localhost:3001/api/v1/posts/${id}/likes`,
-      //  data: {
-      //    title: values.title,
-      //    body: values.comments,
-      //    name: values.name,
-      //    zodiac: values.zodiac,
-      //    mbti: values.mbti,
-      //    enneagram: values.enneagram,
-      //    image: values.avatarUrl,
-      //  },
-    }),
+  // if (query.isLoading) {
+  //   return <h1>Loading...</h1>;
+  // }
 
-    {
-      onSuccess: () => {
-        navigate('/');
-      },
-    },
-  );
-
-  if (query.isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (query.isError) {
-    return <h1>Unable to fetch data...</h1>;
-  }
+  // if (query.isError) {
+  //   return <h1>Unable to fetch data...</h1>;
+  // }
 
   const renderComments = () => query?.data?.data?.data?.map((items) => (
     <div
@@ -133,7 +103,7 @@ const Comment = () => {
             className="inline-block mr-1"
             type="button"
             onClick={() => {
-              setVotes(items.id);
+              // setVotes(items.id);
               mutation.mutate(items.id);
             }}
             role="presentation"
@@ -150,23 +120,14 @@ const Comment = () => {
 
   return (
     <>
-      {/* <AddComment /> */}
-      <div
-        className="comment-container flex flex-col px-2 py-2 my-5 mx-3 rounded-3xl border border-gray-200 shadow-lg drop-shadow-lg"
-      >
-        {' '}
-        new data
-
-      </div>
       <div className="flex flex-col mx-1 px-1 py-1 my-5 rounded-2xl">
-        {/* {comment.length ? (
-        renderComments()
-      ) : (
-        <p className="text-center text-gray-700 font-semibold col-span-2">
-          No Comments yet!!
-        </p>
-      )} */}
-        {renderComments()}
+        {query?.data?.data?.data?.length ? (
+          renderComments()
+        ) : (
+          <p className="text-center text-gray-700 font-semibold col-span-2">
+            No Comments yet!!
+          </p>
+        )}
       </div>
     </>
   );

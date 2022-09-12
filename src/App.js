@@ -99,11 +99,7 @@ const App = () => {
                 <RecentBtn text="recent" />
               </div>
             </div>
-            {/* <Routes>
-              <Route path="/add-comment" element={<AddComment />} />
-              <Route path="/" element={<Comments />} />
-            </Routes> */}
-            {toggle ? <AddComment /> : ''}
+            {toggle ? <AddComment handleToggle={handleToggle} /> : ''}
             <Comments />
           </main>
         </div>

@@ -7,9 +7,6 @@ const COMMENTS_URL = 'http://localhost:3001/api/v1/posts';
 
 const Prefetch = () => {
   const test = 0;
-  // useEffect(() => {
-  //   queryClient.prefetchQuery('allPosts', () => axios.get(COMMENTS_URL));
-  // }, []);
 
   useEffect(() => {
     queryClient.prefetchQuery('allPosts', () => axios.get(COMMENTS_URL));
