@@ -54,7 +54,7 @@ const App = () => {
         <Header />
         <div className="max-w-[1640px] flex md:flex-row flex-col md:px-10">
           <Sidebar />
-          <main className="flex flex-col w-screen">
+          <main className="flex flex-col xl:w-screen lg:w-[100%]">
             <UserFilter />
             {/* comment section */}
             <div className="flex flex-col px-4">
