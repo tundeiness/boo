@@ -92,13 +92,13 @@ const Comment = () => {
           <EnneagramBtn text={items.enneagram ? items.enneagram : 'none'} />
           <ZodiacBtn text={items.zodiac ? items.zodiac : 'none'} />
         </div>
-        <textarea
+        <p
           className="my-3 p-3 backdrop-grayscale-0 lg:h-full h-screen"
           rows="6"
         >
           {items.body}
-        </textarea>
-        <span className="flex flex-row">
+        </p>
+        <span className="flex flex-row my-2 mx-3">
           <span
             className="inline-block mr-1"
             type="button"
@@ -111,7 +111,7 @@ const Comment = () => {
             <BsFillHeartFill className="my-auto cursor-pointer" />
           </span>
           <span className="inline-block text-xs text-black">
-            {items.like_count}
+            {items.like_count ? items.like_count : 0}
           </span>
         </span>
       </div>
